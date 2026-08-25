@@ -11,14 +11,14 @@
   <style>
     :root {
       --bg: #FFFFFF;
-      --surface: #F8F7F4;
-      --text: #1E1B18;
-      --text-soft: #5A5653;
-      --muted: #ABA8A3;
-      --accent: #7B5C8C;
-      --accent-pale: #F5F0FA;
-      --rule: #E6E3DC;
-      --card-bg: #F8F7F4;
+      --surface: #FFFFFF;
+      --text: #2A2825;
+      --text-soft: #7A7774;
+      --muted: #C0BDB8;
+      --accent: #9070A8;
+      --accent-pale: #F8F4FC;
+      --rule: #EBEBEA;
+      --card-bg: #FAFAF8;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -232,7 +232,7 @@
 
     .card {
       background: var(--card-bg);
-      border: 1px solid var(--rule);
+      border: 1px solid #F0EFED;
       padding: 2rem;
       display: flex;
       flex-direction: column;
@@ -355,7 +355,7 @@
     .testimonial {
       padding: 2.5rem;
       background: var(--accent-pale);
-      border: 1px solid var(--rule);
+      border: 1px solid #EDE8F5;
       position: relative;
     }
 
@@ -704,10 +704,10 @@
       const isDark = document.documentElement.dataset.theme === 'dark'
         || (!document.documentElement.dataset.theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
-      const bg = isDark ? '#201C25' : '#F8F7F4';
-      const c1 = isDark ? 'rgba(176,142,200,0.18)' : 'rgba(123,92,140,0.1)';
-      const c2 = isDark ? 'rgba(176,142,200,0.08)' : 'rgba(123,92,140,0.06)';
-      const stroke = isDark ? 'rgba(176,142,200,0.3)' : 'rgba(123,92,140,0.22)';
+      const bg = isDark ? '#201C25' : '#FAFAF8';
+      const c1 = isDark ? 'rgba(176,142,200,0.18)' : 'rgba(144,112,168,0.08)';
+      const c2 = isDark ? 'rgba(176,142,200,0.08)' : 'rgba(144,112,168,0.05)';
+      const stroke = isDark ? 'rgba(176,142,200,0.3)' : 'rgba(144,112,168,0.18)';
 
       ctx.fillStyle = bg;
       ctx.fillRect(0, 0, w, h);
@@ -753,7 +753,7 @@
       ctx.quadraticCurveTo(cx + w * 0.32, h * 0.7, cx + w * 0.25, h * 0.95);
       ctx.stroke();
 
-      ctx.strokeStyle = isDark ? 'rgba(176,142,200,0.1)' : 'rgba(123,92,140,0.08)';
+      ctx.strokeStyle = isDark ? 'rgba(176,142,200,0.1)' : 'rgba(144,112,168,0.07)';
       ctx.lineWidth = 1;
       for (let i = 0; i < 6; i++) {
         const y = h * 0.6 + i * (h * 0.065);
