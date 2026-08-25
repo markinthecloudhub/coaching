@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mark Onderwater Coaching</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,500;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap">
+
+  <style>
+    :root {
+      --bg: #FFFFFF;
+      --surface: #F8F7F4;
+      --text: #1E1B18;
+      --text-soft: #5A5653;
+      --muted: #ABA8A3;
+      --accent: #7B5C8C;
+      --accent-pale: #F5F0FA;
+      --rule: #E6E3DC;
+      --card-bg: #F8F7F4;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #17141A;
+        --surface: #201C25;
+        --text: #F0EDE8;
+        --text-soft: #B8B4B0;
+        --muted: #7A7680;
+        --accent: #B08EC8;
+        --accent-pale: #2A2030;
+        --rule: #302C36;
+        --card-bg: #211D26;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #17141A;
+      --surface: #201C25;
+      --text: #F0EDE8;
+      --text-soft: #B8B4B0;
+      --muted: #7A7680;
+      --accent: #B08EC8;
+      --accent-pale: #2A2030;
+      --rule: #302C36;
+      --card-bg: #211D26;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.25rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garant', Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      padding: 12rem 3rem 6rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garant', Georgia, serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      text-wrap: balance;
+      color: var(--text);
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+      max-width: 38ch;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.85rem 2rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      align-self: flex-start;
+    }
+
+    .btn-primary:hover { opacity: 0.85; }
+
+    .scroll-hint {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .scroll-hint::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--muted);
+    }
+
+    /* ── Section shell ── */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 7rem 3rem;
+    }
+
+    .section-rule {
+      width: 100%;
+      height: 1px;
+      background: var(--rule);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garant', Georgia, serif;
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      font-weight: 400;
+      line-height: 1.15;
+      text-wrap: balance;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title em { font-style: italic; }
+
+    /* ── Recognition cards ── */
+    .recognition-intro {
+      max-width: 54ch;
+      margin-bottom: 4rem;
+    }
+
+    .recognition-intro p {
+      color: var(--text-soft);
+      font-size: 1.05rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--rule);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .card-mark {
+      font-family: 'Cormorant Garant', Georgia, serif;
+      font-size: 2.8rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--accent);
+      line-height: 1;
+      opacity: 0.45;
+      user-select: none;
+    }
+
+    .card-text {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    /* ── About ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .about-image-wrap { position: relative; }
+
+    .about-image-block {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: var(--surface);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-canvas { width: 100%; height: 100%; }
+
+    .about-image-caption {
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-top: 1rem;
+    }
+
+    .about-body { padding-top: 1rem; }
+
+    .about-body p {
+      color: var(--text-soft);
+      margin-bottom: 1.25rem;
+    }
+
+    .about-body p:last-child { margin-bottom: 0; }
+
+    .about-signature {
+      font-family: 'Cormorant Garant', Georgia, serif;
+      font-size: 1.8rem;
+      font-style: italic;
+      color: var(--accent);
+      margin-top: 2rem;
+    }
+
+    /* ── Approach ── */
+    .approach-lead {
+      max-width: 58ch;
+      margin-bottom: 4rem;
+    }
+
+    .approach-lead p { color: var(--text-soft); font-size: 1.05rem; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .step {
+      border-top: 2px solid var(--accent);
+      padding-top: 1.5rem;
+    }
+
+    .step-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .step-title {
+      font-family: 'Cormorant Garant', Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      text-wrap: balance;
+    }
+
+    .step-desc {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      line-height: 1.65;
+    }
+
+    /* ── Testimonials ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .testimonial {
+      padding: 2.5rem;
+      background: var(--accent-pale);
+      border: 1px solid var(--rule);
+      position: relative;
+    }
+
+    .testimonial::before {
+      content: '\201C';
+      font-family: 'Cormorant Garant', Georgia, serif;
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--accent);
+      opacity: 0.2;
+      position: absolute;
+      top: 1rem;
+      left: 2rem;
+    }
+
+    .testimonial-text {
+      font-family: 'Cormorant Garant', Georgia, serif;
+      font-size: 1.25rem;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      padding-top: 1.5rem;
+    }
+
+    .testimonial-author {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── Contact ── */
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .contact-tagline {
+      font-family: 'Cormorant Garant', Georgia, serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.25;
+      text-wrap: balance;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .form-input, .form-textarea {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      padding: 0.75rem 1rem;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s;
+      border-radius: 0;
+      appearance: none;
+    }
+
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .form-textarea { resize: vertical; min-height: 120px; }
+
+    /* ── Footer ── */
+    footer {
+      padding: 2rem 3rem;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-name {
+      font-family: 'Cormorant Garant', Georgia, serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-soft);
+    }
+
+    .footer-tagline {
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 800px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 9rem 1.5rem 4rem; min-height: auto; gap: 2.5rem; }
+      .hero-right { padding-bottom: 0; }
+      .hero-sub { max-width: none; }
+      .section { padding: 5rem 1.5rem; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .steps { grid-template-columns: 1fr; gap: 2rem; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 3rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 2rem 1.5rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <a href="#" class="nav-logo">Mark Onderwater</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#testimonials">Stories</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section>
+  <div class="hero">
+    <h1 class="hero-headline">
+      You've built something real.<br>
+      So why does it still feel like<br>
+      <em>not enough?</em>
+    </h1>
+    <div class="hero-right">
+      <p class="hero-sub">
+        I work with professionals who have done everything right — and still sense
+        that the life they're living isn't quite the one they meant to build.
+        Coaching creates space to figure out what's actually going on.
+      </p>
+      <a href="#contact" class="btn-primary">Start a conversation</a>
+      <span class="scroll-hint">Scroll to explore</span>
+    </div>
+  </div>
+</section>
+
+<div class="section-rule"></div>
+
+<!-- Recognition -->
+<section class="section" id="recognition">
+  <p class="eyebrow">Does this sound familiar?</p>
+  <div class="recognition-intro">
+    <h2 class="section-title">Something has shifted — <em>or hasn't</em></h2>
+    <p>You might not be able to name it precisely. But somewhere in the back of your mind, you know.</p>
+  </div>
+
+  <div class="cards-grid">
+    <div class="card">
+      <span class="card-mark">"</span>
+      <p class="card-text">You're successful by every measure — yet you go through the motions with a quiet sense that something important is missing.</p>
+    </div>
+    <div class="card">
+      <span class="card-mark">"</span>
+      <p class="card-text">You keep achieving the next goal, but the satisfaction lasts only a few days before the restlessness returns.</p>
+    </div>
+    <div class="card">
+      <span class="card-mark">"</span>
+      <p class="card-text">You're excellent at guiding others, but when it comes to your own direction, you feel genuinely stuck.</p>
+    </div>
+    <div class="card">
+      <span class="card-mark">"</span>
+      <p class="card-text">You've built your identity around your career — and you're starting to wonder who you are beyond the title.</p>
+    </div>
+    <div class="card">
+      <span class="card-mark">"</span>
+      <p class="card-text">Making a big change feels too risky, but staying exactly as things are feels worse.</p>
+    </div>
+    <div class="card">
+      <span class="card-mark">"</span>
+      <p class="card-text">You want to be more intentional — about your time, your work, your relationships — but don't know where to begin.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-rule"></div>
+
+<!-- About -->
+<section class="section" id="about">
+  <div class="about-grid">
+    <div class="about-image-wrap">
+      <div class="about-image-block">
+        <canvas class="about-canvas" id="portraitCanvas"></canvas>
+      </div>
+      <p class="about-image-caption">Mark Onderwater — Executive &amp; Life Coach</p>
+    </div>
+
+    <div class="about-body">
+      <p class="eyebrow">Hi, I'm Mark</p>
+      <h2 class="section-title">I know what it's like to have all the answers — <em>except the right ones</em></h2>
+
+      <p>For years, I moved fast. New roles, new challenges, each one a little bigger than the last. I was good at it. I told myself the unease I felt was just ambition looking for its next outlet.</p>
+
+      <p>It took stepping back — really stepping back — to understand that I had been building someone else's version of success. The realization was uncomfortable. It was also the most useful thing that ever happened to me.</p>
+
+      <p>That experience is at the heart of how I coach. I'm not interested in quick fixes or frameworks that paper over complexity. I'm interested in helping you understand yourself clearly enough to make decisions you can actually stand behind.</p>
+
+      <p>I trained with the ICF-accredited Co-Active Training Institute and have worked with leaders, entrepreneurs, and professionals across industries navigating transitions, identity questions, and the quiet crises that don't show up on a CV.</p>
+
+      <p class="about-signature">— Mark</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-rule"></div>
+
+<!-- Approach -->
+<section class="section" id="approach">
+  <p class="eyebrow">How we work together</p>
+  <div class="approach-lead">
+    <h2 class="section-title">No formulas. No prescriptions. <em>Real conversation.</em></h2>
+    <p>Coaching is thinking out loud with someone trained to ask the question that changes the frame. Here's roughly what that looks like.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <p class="step-label">First</p>
+      <h3 class="step-title">A free introductory session</h3>
+      <p class="step-desc">We spend an hour together at no cost. You bring whatever is most alive for you right now. I ask questions. You leave with at least one thing that's useful — and we both get a sense of whether working together makes sense.</p>
+    </div>
+    <div class="step">
+      <p class="step-label">Then</p>
+      <h3 class="step-title">A focused engagement</h3>
+      <p class="step-desc">Most clients work with me over three to six months, meeting every two weeks. Sessions are one hour, online or in person. Between sessions, there's space to apply what emerged. The pace is yours.</p>
+    </div>
+    <div class="step">
+      <p class="step-label">Throughout</p>
+      <h3 class="step-title">Honest, rigorous presence</h3>
+      <p class="step-desc">I'll say what I notice. I'll sit with you in the uncomfortable parts without rushing past them. And when the path forward becomes clear, we'll make sure it's yours — not the one that looks right on paper.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-rule"></div>
+
+<!-- Testimonials -->
+<section class="section" id="testimonials">
+  <p class="eyebrow">In their words</p>
+  <h2 class="section-title">Some of the people<br><em>I've worked with</em></h2>
+
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <p class="testimonial-text">I came in thinking I needed a new strategy. I left understanding that I needed a new relationship with myself. Mark has a rare ability to hold the weight of a conversation without trying to fix it prematurely.</p>
+      <p class="testimonial-author">Lena H. — Director of Operations, Amsterdam</p>
+    </div>
+    <div class="testimonial">
+      <p class="testimonial-text">Six months in, I handed in my notice. Not because Mark told me to — he never pushed — but because for the first time I could see what I actually wanted, clearly enough to act on it.</p>
+      <p class="testimonial-author">Thomas B. — Former Partner, Financial Services</p>
+    </div>
+    <div class="testimonial">
+      <p class="testimonial-text">The questions Mark asks are deceptively simple. They don't let you off the hook. I've had more useful realisations in these sessions than in years of trying to think my way through things alone.</p>
+      <p class="testimonial-author">Marieke V. — Entrepreneur &amp; Founder</p>
+    </div>
+    <div class="testimonial">
+      <p class="testimonial-text">I was sceptical of coaching. I'm an analytical person — I don't find 'journaling exercises' useful. This was nothing like that. It was rigorous, honest, and genuinely changed how I approach leadership.</p>
+      <p class="testimonial-author">Pieter S. — VP Engineering, Tech Scale-up</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-rule"></div>
+
+<!-- Contact -->
+<section class="section" id="contact">
+  <div class="contact-wrap">
+    <div>
+      <p class="eyebrow">Get in touch</p>
+      <h2 class="contact-tagline">Let's find out if<br>this is the right fit.</h2>
+      <p style="color: var(--text-soft); margin-top: 2rem; font-size: 0.95rem; line-height: 1.7; max-width: 38ch;">
+        Send me a message and we'll schedule a free introductory session — no obligation, no sales process.
+        Just a conversation.
+      </p>
+    </div>
+
+    <form class="contact-form" onsubmit="return false;">
+      <div class="form-field">
+        <label class="form-label" for="name">Name</label>
+        <input class="form-input" id="name" type="text" autocomplete="name" placeholder="Your name">
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="email">Email</label>
+        <input class="form-input" id="email" type="email" autocomplete="email" placeholder="your@email.com">
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="message">What's on your mind?</label>
+        <textarea class="form-textarea" id="message" placeholder="Tell me a little about where you are right now — no need to have the words perfectly sorted."></textarea>
+      </div>
+      <button type="submit" class="btn-primary">Send message</button>
+    </form>
+  </div>
+</section>
+
+<div class="section-rule"></div>
+
+<footer>
+  <span class="footer-name">Mark Onderwater</span>
+  <span class="footer-tagline">ICF-accredited coaching · Amsterdam &amp; online</span>
+</footer>
+
+<script>
+  (function () {
+    const canvas = document.getElementById('portraitCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    function resize() {
+      const parent = canvas.parentElement;
+      canvas.width = parent.clientWidth;
+      canvas.height = parent.clientHeight;
+      draw();
+    }
+
+    function draw() {
+      const w = canvas.width, h = canvas.height;
+      const isDark = document.documentElement.dataset.theme === 'dark'
+        || (!document.documentElement.dataset.theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+      const bg = isDark ? '#201C25' : '#F8F7F4';
+      const c1 = isDark ? 'rgba(176,142,200,0.18)' : 'rgba(123,92,140,0.1)';
+      const c2 = isDark ? 'rgba(176,142,200,0.08)' : 'rgba(123,92,140,0.06)';
+      const stroke = isDark ? 'rgba(176,142,200,0.3)' : 'rgba(123,92,140,0.22)';
+
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, w, h);
+
+      const blobs = [
+        { x: w * 0.35, y: h * 0.3, r: w * 0.55 },
+        { x: w * 0.7, y: h * 0.65, r: w * 0.45 },
+      ];
+
+      blobs.forEach((b, i) => {
+        const grad = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r);
+        grad.addColorStop(0, i === 0 ? c1 : c2);
+        grad.addColorStop(1, 'transparent');
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      ctx.strokeStyle = stroke;
+      ctx.lineWidth = 1.5;
+      ctx.lineCap = 'round';
+
+      const cx = w * 0.5;
+
+      ctx.beginPath();
+      ctx.ellipse(cx, h * 0.22, w * 0.15, h * 0.13, 0, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(cx - w * 0.28, h * 0.42);
+      ctx.quadraticCurveTo(cx - w * 0.1, h * 0.33, cx, h * 0.36);
+      ctx.quadraticCurveTo(cx + w * 0.1, h * 0.33, cx + w * 0.28, h * 0.42);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(cx - w * 0.28, h * 0.42);
+      ctx.quadraticCurveTo(cx - w * 0.32, h * 0.7, cx - w * 0.25, h * 0.95);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(cx + w * 0.28, h * 0.42);
+      ctx.quadraticCurveTo(cx + w * 0.32, h * 0.7, cx + w * 0.25, h * 0.95);
+      ctx.stroke();
+
+      ctx.strokeStyle = isDark ? 'rgba(176,142,200,0.1)' : 'rgba(123,92,140,0.08)';
+      ctx.lineWidth = 1;
+      for (let i = 0; i < 6; i++) {
+        const y = h * 0.6 + i * (h * 0.065);
+        ctx.beginPath();
+        ctx.moveTo(w * 0.05, y);
+        ctx.lineTo(w * 0.95, y);
+        ctx.stroke();
+      }
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
+    window.addEventListener('resize', resize);
+    resize();
+  })();
+</script>
+
+</body>
+</html>
