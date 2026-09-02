@@ -1,13 +1,13 @@
 :root {
-  --bg: #FCFBFA;
-  --surface: #F5F1F1;
-  --blush: #F8F3F4;
-  --text: #2E2A31;
-  --text-soft: #6B6670;
-  --muted: #A9A2A8;
-  --accent: #8A6B7C;
-  --accent-soft: #B79AA8;
-  --rule: #E8E3E4;
+  --bg: #FAFAF9;
+  --surface: #EFF5F3;
+  --blush: #F0F6F4;
+  --text: #1C2523;
+  --text-soft: #556660;
+  --muted: #96A8A3;
+  --accent: #3D7E7A;
+  --accent-soft: #7AACA8;
+  --rule: #DAE8E5;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -34,7 +34,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(252, 251, 250, 0.9);
+  background: rgba(250, 250, 249, 0.9);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--rule);
 }
@@ -121,9 +121,9 @@ nav {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(252, 251, 250, 0.55) 0%,
-    rgba(252, 251, 250, 0.15) 35%,
-    rgba(252, 251, 250, 0.7) 78%,
+    rgba(250, 250, 249, 0.55) 0%,
+    rgba(250, 250, 249, 0.15) 35%,
+    rgba(250, 250, 249, 0.7) 78%,
     var(--bg) 100%
   );
 }
@@ -190,7 +190,7 @@ nav {
 }
 
 .btn:hover, .btn:focus-visible {
-  background: #6F5464;
+  background: #2D6460;
   transform: translateY(-2px);
 }
 
