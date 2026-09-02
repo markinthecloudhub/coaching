@@ -49,8 +49,14 @@ img { max-width: 100%; display: block; }
 .nav-logo {
   display: flex;
   align-items: center;
+  gap: 0.6rem;
   text-decoration: none;
   flex-shrink: 0;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text);
 }
 
 .nav-logo img {
