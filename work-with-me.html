@@ -8,19 +8,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Karla:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Bakasana Coaching"></a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="work-with-me.html" class="active">Work With Me</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Bakasana Coaching"></a>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="work-with-me.html" class="active">Work With Me</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
 <div class="page-header">
   <h1>Working <em>together</em></h1>
@@ -113,10 +117,21 @@
   </p>
 </section>
 
-<footer>
-  <span class="footer-name">Bakasana Coaching</span>
-  <span class="footer-note">Walking &amp; nature-based coaching · outdoors or online</span>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <h3>Contact</h3>
+      <ul class="footer-contact">
+        <li><i class="fa-solid fa-phone ci"></i> <a href="tel:+31636565379">+31 6 36 56 53 79</a></li>
+        <li><i class="fa-brands fa-whatsapp ci"></i> <a href="https://wa.me/31636565379" target="_blank" rel="noopener">+31 6 36 56 53 79</a></li>
+        <li><i class="fa-solid fa-envelope ci"></i> <a href="mailto:livingtheyogalife@gmail.com">livingtheyogalife@gmail.com</a></li>
+        <li><i class="fa-solid fa-location-dot ci"></i> Sleeuwijk, Nederland</li>
+      </ul>
+    </div>
+    <div class="smallprint">© <span class="year"></span> Bakasana Coaching &nbsp;|&nbsp; KVK: 89887751</div>
+  </div>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
